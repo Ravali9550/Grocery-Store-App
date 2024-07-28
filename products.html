@@ -1,0 +1,185 @@
+{% from "alllinks.html" import links %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store/Products</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='product.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Grocery Store</h1>
+        <nav>
+            {{links()}}
+        </nav>
+    </header>
+    <div class="user-c">
+        {% if user %}
+
+        <h3> User : {{ user['Name'] }} </h3>
+        <h4><a href="{{url_for('logout')}}">logout</a></h4>
+
+        {% endif %}
+    </div>
+    <div class="search-bar">
+        <form action="/search" method="POST">
+            <input class="search-b" type="search" name="search" placeholder="Search...">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="main-div-products">
+        {% if allpd %}
+        <div class="headers">
+            {% if "VEG" in cat %}
+            <h3>Vegetables</h3>
+            {% endif %}
+            <div class="products">
+                {% for id in allpd %}
+                {% if "VEG" in id %}
+                <form action='/addtocart' method="POST">
+                    <div class="imt">
+
+                        <img class="imgs" src="{{url_for('static', filename = id['description'])}}"><br>
+                        <h4>{{ id['product_name'] }}</h4>
+                        <p>{{ id['price'] }}Rs/{{ id['unit'] }}</p>
+                        <div>
+                            <input class="search-b" name='QTY' type="number" min="1" max="50" step="1">
+                            <input type="hidden" name="pid" value="{{ id['product_id'] }}">
+                            <button class="search-button-1"  type="submit" style="margin: 10px;">Add</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="headers">
+            {% if "FRU" in cat %}
+            <h3>Fruits</h3>
+            {% endif %}
+            <div class="products">
+                {% for id in allpd %}
+                {% if "FRU" in id %}
+
+                <form action='/addtocart' method="POST">
+                    <div class="imt">
+
+                        <img class="imgs" src="{{url_for('static', filename = id['description'])}}"><br>
+                        <h4>{{ id['product_name'] }}</h4>
+                        <p>{{ id['price'] }}Rs/{{ id['unit'] }}</p>
+                        <div>
+                            <input class="search-b" name='QTY' type="number" min="1" max="50" step="1">
+                            <input type="hidden" name="pid" value="{{ id['product_id'] }}">
+                            <button class="search-button-1"  type="submit" style="margin: 10px;">Add</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="headers">
+            {% if "PUL" in cat %}
+            <h3>Pulse</h3>
+            {% endif %}
+            <div class="products">
+                {% for id in allpd %}
+                {% if "PUL" in id %}
+
+                <form action='/addtocart' method="POST">
+                    <div class="imt">
+
+                        <img class="imgs" src="{{url_for('static', filename = id['description'])}}"><br>
+                        <h4>{{ id['product_name'] }}</h4>
+                        <p>{{ id['price'] }}Rs/{{ id['unit'] }}</p>
+                        <div>
+                            <input class="search-b" name='QTY' type="number" min="1" max="50" step="1">
+                            <input type="hidden" name="pid" value="{{ id['product_id'] }}">
+                            <button class="search-button-1"  type="submit" style="margin: 10px;">Add</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="headers">
+            {% if "OIL" in cat %}
+            <h3>Oil</h3>
+            {% endif %}
+            <div class="products">
+                {% for id in allpd %}
+                {% if "OIL" in id %}
+
+                <form action='/addtocart' method="POST">
+                    <div class="imt">
+
+                        <img class="imgs" src="{{url_for('static', filename = id['description'])}}"><br>
+                        <h4>{{ id['product_name'] }}</h4>
+                        <p>{{ id['price'] }}Rs/{{ id['unit'] }}</p>
+                        <div>
+                            <input class="search-b" name='QTY' type="number" min="1" max="50" step="1">
+                            <input type="hidden" name="pid" value="{{ id['product_id'] }}">
+                            <button class="search-button-1"  type="submit" style="margin: 10px;">Add</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="headers">
+            {% if "BEV" in cat %}
+            <h3>Beverages</h3>
+            {% endif %}
+            <div class="products">
+                {% for id in allpd %}
+                {% if "BEV" in id %}
+
+                <form action='/addtocart' method="POST">
+                    <div class="imt">
+
+                        <img class="imgs" src="{{url_for('static', filename = id['description'])}}"><br>
+                        <h4>{{ id['product_name'] }}</h4>
+                        <p>{{ id['price'] }}Rs/{{ id['unit'] }}</p>
+                        <div>
+                            <input class="search-b" name='QTY' type="number" min="1" max="50" step="1">
+                            <input type="hidden" name="pid" value="{{ id['product_id'] }}">
+                            <button class="search-button-1"  type="submit" style="margin: 10px;">Add</button>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+        {% else %}
+        <P> No products found</P>
+        {% endif %}
+        <div class="proceed">
+            <a href="{{url_for('cart')}}">
+                <button class="proceed-button" name='submit' type="submit">Proceed</button>
+            </a>
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>Contact us at contact@example.com</p>
+    </footer>
+
+
+</body>
+
+</html>

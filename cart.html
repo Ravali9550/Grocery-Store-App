@@ -1,0 +1,126 @@
+{% from "alllinks.html" import links %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store/Cart</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='cart.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Grocery Store</h1>
+        <nav>
+
+            {{links()}}
+
+        </nav>
+    </header>
+    <div class="user-c">
+        {% if user %}
+
+        <h3> User : {{ user['Name'] }} </h3>
+        <h4><a href="{{url_for('logout')}}">logout</a></h4>
+
+        {% endif %}
+    </div>
+    <div class="main">
+        <div class="table">
+            <div class="caption">
+                <caption class="cartvalue">
+                    <h2>Cart</h2>
+                </caption>
+            </div>
+            <hr>
+
+            <div class="table1">
+                <table>
+
+                    <thead>
+                        <tr>
+                            <td>
+                                <h4 class="products">Product</h4>
+                            </td>
+                            <td>
+                                <h4 class="QTN">QTY</h4>
+                            </td>
+                            <td>
+                                <h4 class="price">Price</h4>
+                            </td>
+                        </tr>
+
+                    </thead>
+                    {% if items %}
+
+                    {% for item in items %}
+                    <tbody>
+
+                        <tr>
+                            <td>{{ item['product_name'] }}</td>
+                            <td>
+                                {% if a %}
+                                <form action=/edit1 method="POST">
+                                    <input class="number-1" name="qty" type="number" value="{{item['QTY']}}">
+                                    <input name="id" type="hidden" value="{{item['product_id']}}">
+                                    <button class="ok-button" type="submit">ok</button>
+                                </form>
+
+                                {% else %}
+                                {{ item['QTY'] }}
+                                {% endif %}
+                            </td>
+                            <td>{{ item['price'] }}</td>
+
+                            <td><a class="edit" href="{{url_for('edit', pro_id = item['product_id'])}}">
+                                    <p>Edit</p>
+                                </a></td>
+
+
+                            <td><a class="delete" href="{{url_for('delete', pro_id = item['product_id'])}}">
+                                    <p>Delete</p>
+                                </a></td>
+                        </tr>
+
+                    </tbody>
+                    {% endfor %}
+
+                    {% else %}
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p>your cart is empty</p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    {% endif %}
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="final">
+        <div>
+            <h2>Total : {% if total %} {{ total }} {% else %} 0.00 {% endif %}Rs </h2>
+        </div>
+        <div>
+            <h3><a href="{{url_for('checkout')}}">
+                    <button class="button" href="#">Checkout</button></a></h3>
+        </div>
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+/* Basic styles */
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.imgs {
+    width: 200px;
+    height: 175px;
+    margin: 1px;
+    border: rgb(235, 186, 134);
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.products {
+    display: flex;
+}
+
+.imt {
+
+    text-align: center;
+}
+
+.main-div-products {
+    margin-left: 30px;
+}
+
+.headers {
+    position: relative;
+    overflow-x: scroll;
+   
+
+}
+
+.search-bar {
+    margin-left: 75%;
+    margin-top: 20px;
+}
+
+.search-button {
+    background-color: rgb(253, 131, 87);
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px;
+    border-color: rgb(68, 64, 56);
+    border-style: solid;
+}
+
+.search-b {
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px;
+    border-color: rgb(68, 64, 56);
+    border-style: solid;
+}
+
+.search-button:hover {
+    background-color: chocolate;
+    transition: 0.5s;
+
+}
+
+.search-button-1 {
+    background-color: rgba(105, 205, 223, 0.655);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px;
+    border-color: rgb(68, 64, 56);
+    border-style: solid;
+}
+
+
+
+.search-button-1:hover {
+    background-color: chocolate;
+    transition: 0.5s;
+
+}
+
+.proceed {
+    margin-left: 86%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+
+}
+
+.proceed-button {
+    height: 40px;
+    width: 100px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgb(253, 131, 87);
+}
+.proceed-button:hover {
+    background-color: chocolate;
+    transition: 0.5s;
+
+}
+
+.user-c{
+    margin-left: 20px;
+}

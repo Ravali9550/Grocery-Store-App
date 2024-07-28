@@ -1,0 +1,227 @@
+{% from "alllinks.html" import links %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery Store/Checkout</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='styling.css')}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+
+
+  <header>
+    <h1>Grocery Store</h1>
+    <nav>
+      {{links()}}
+    </nav>
+  </header>
+  <div class="user-c">
+    {% if user %}
+
+    <h3> User : {{ user['name'] }} </h3>
+    <h4><a href="{{url_for('logout')}}">logout</a></h4>
+
+    {% endif %}
+  </div>
+
+  <div class="thankyou">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    {% for message in messages %}
+    <h2> {{ message  }} 🛍️ </h2>
+    {% endfor %}
+
+    <a href="{{url_for('products')}}">ok</a>
+
+  </div>
+  {% else %}
+  <div class="order-con">
+    <h3>Order Confirmation</h3>
+  </div>
+  <div class="table2">
+    <div class="pro">
+
+      <table>
+
+        <thead>
+          <tr>
+
+            <td>
+              <h4 class="products">Product</h4>
+            </td>
+            <td>
+              <h4 class="QTN">QTY</h4>
+            </td>
+            <td>
+              <h4 class="price">Price</h4>
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% if items %}
+          {% for item in items %}
+          <tr>
+
+            <td> {{ item['product_name'] }} </td>
+            <td> {{ item['QTY'] }} </td>
+            <td> {{ item['price'] }} </td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td>
+              <h5>Total amount:</h5>
+            </td>
+            <td></td>
+            <td> {% if total %} {{ total }} {% else %} 0.00 {% endif %} Rs</td>
+          </tr>
+          {% endif %}
+
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+  <div class="Main">
+
+    <h3> order details</h3>
+    <div class="form">
+      {% if user %}
+      <table>
+        <form action="/pay" method="POST">
+          <div class="list">
+            <tr>
+              <td>
+                <div class="name-details">
+                  <label for="name">Name</label>
+
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <label for="phone">Phone</label>
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <label for="address">Address</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="name-details">
+                  <input name="name" type="text" id="name" value="{{ user['name'] }}">
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <input name="phone" type="text" id="phone" value="{{ user['phone'] }}">
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <input name="address" type="text" id="address" value="{{ user['address'] }}">
+                </div>
+              </td>
+            </tr>
+            <div>
+            <tr>
+              <td></td>
+              <td>
+                <div>
+                  <button class="pay-1" type="submit"> Pay</button>
+                </div>
+              </td>
+              <div class="name-details">
+                <input name="uname" type="hidden" value="{{ user['username'] }}">
+              </div>
+          </div>
+        </form>
+        <td>
+          <div>
+            <a href="{{url_for('cancel_order')}}">
+              <button class="cancel-1">cancel</button></a>
+          </div>
+        </td>
+        </tr>
+      </table>
+      {% else %}
+
+      <table>
+        <form action="/pay" method="POST">
+          <div class="list">
+
+            <tr>
+              <td>
+                <div class="name-details">
+                  <label for="name">Name</label>
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <label for="phone">Phone</label>
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <label for="address">Address</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="name-details">
+                  <input name="name" type="text" id="name">
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <input name="phone" type="text" id="phone">
+                </div>
+              </td>
+              <td>
+                <div class="name-details">
+                  <input name="address" type="text" id="address">
+                </div>
+              </td>
+              <input name="uname" type="hidden" value="Guest">
+          </div>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div>
+                <button class="pay-1" type="submit"> Pay</button>
+
+              </div>
+            </td>
+        </form>
+        <td>
+          <div>
+            <a href="{{url_for('cancel_order')}}">
+            <button class="cancel-1">cancel</button></a>
+          </div>
+        </td>
+        </tr>
+      </table>
+      {% endif %}
+    </div>
+
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>

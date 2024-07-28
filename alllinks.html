@@ -1,0 +1,9 @@
+{% macro links() %}
+ 
+<ul>
+    <li><a href="{{url_for('home')}}">Home</a></li>
+    <li><a href="{{url_for('products')}}">Products</a></li>
+    <li><a href="{{url_for('cart')}}">Cart</a></li>
+</ul>
+
+{% endmacro %}

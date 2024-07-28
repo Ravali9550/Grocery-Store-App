@@ -1,0 +1,73 @@
+{% from "alllinks.html" import links %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store/Home/Login</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styling.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div>
+        <header>
+            <h1>Grocery Store</h1>
+            <nav>
+                {{links()}}
+            </nav>
+        </header>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div>
+                <main>
+                    <section id="home">
+                        <h2>Welcome to Our Store</h2>
+                        <h5>Check out our latest products!</h5>
+                    </section>
+                </main>
+            </div>
+
+        </div>
+
+
+        <div class="login-main-1">
+            <div class="login-form">
+
+                <h3>Login Form</h3>
+                <p> {% if error %} {{ error }} {% endif %}</p>
+                <form action="/" method="POST">
+                    <div class="login-user">
+                        <label> Username </label><br>
+                        <a><input name='username' type="text"></a>
+                    </div><br>
+                    <div class="login-user">
+                        <label> Password </label><br>
+                        <a><input name="password" type="password"></a>
+                    </div><br>
+                    <div style="text-align: center;">
+                        <a ><button class="login-button">Login</button></a>
+                    </div>
+                </form>
+
+                <div>
+                    <h4><a href="{{url_for('home')}}">Login</a>/<a href="{{url_for('register')}}">Register</a></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>Contact us at contact@example.com</p>
+    </footer>
+</body>
+
+</html>

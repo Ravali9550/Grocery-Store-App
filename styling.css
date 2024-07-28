@@ -1,0 +1,192 @@
+/* Basic styles */
+body {
+
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+
+    padding: 20px;
+
+
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+
+}
+
+
+
+.login-form {
+    padding: 10px;
+    background-color: #f0e8aa;
+    opacity: 94%;
+    display: inline-block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.login-user,
+.login-form h3 {
+    padding: 10px;
+    margin-left: 2px;
+}
+
+.login-main-1 {
+    text-align: center;
+}
+
+.login-main {
+    position: absolute;
+    left: 38.5%;
+
+}
+
+.login-button {
+    width: 75px;
+    background-color: #827f78;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.login-button:hover {
+    background-color: silver;
+    transition: 0.4ms;
+}
+
+.register-user {
+    padding: 5px;
+}
+
+.body {
+    width: 100%;
+    background: url(grocery.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 110vh;
+    opacity: 90%;
+}
+
+.body-1 {
+    width: 100%;
+    background: url(grocery.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 120vh;
+    opacity: 90%;
+}
+
+.container {
+    text-align: center;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.pro {
+    background-color: white;
+    display: inline-block;
+    margin-top: 15px;
+    position: static;
+}
+
+.products,
+.QTN,
+.price {
+    margin-left: 5px;
+    margin-right: 20px;
+    padding: 10px;
+
+}
+
+.table2{
+    text-align: center;
+}
+.order-con{
+  text-align: center;  
+}
+
+.list ul li{
+    list-style-type: none;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+.Main h3{
+    margin-left: 10px;
+}
+.Main{
+    display: inline-block;
+    margin:20px;
+
+
+}
+
+.cancel-1 , .pay-1{
+    height: 20px;
+    width: 110px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgb(253, 131, 87);
+}
+
+.pay-1:hover {
+    background-color: chocolate;
+    transition: 0.5s;
+}
+
+.cancel-1:hover {
+    background-color: chocolate;
+    transition: 0.5s;
+}
+
+.thankyou{
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+.user-c{
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
